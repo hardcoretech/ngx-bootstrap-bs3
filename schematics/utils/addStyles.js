@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.addStyles = void 0;
+exports.addStyles = addStyles;
 const getVersions_1 = require("./getVersions");
 const index_1 = require("./index");
 const path = require("path");
@@ -29,7 +29,6 @@ function addStyles(project, targetName, host, availableAssetPaths, projectName, 
     }
     return host;
 }
-exports.addStyles = addStyles;
 function addStylesPathsToTargetOptions(targetOptions, existingStyles, stylePatch) {
     var _a, _b;
     if (!existingStyles.some((path) => path === stylePatch)) {

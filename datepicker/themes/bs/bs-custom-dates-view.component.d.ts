@@ -10,6 +10,7 @@ export declare class BsCustomDatesViewComponent {
     customRangeLabel?: string;
     onSelect: EventEmitter<BsCustomDates>;
     selectFromRanges(range?: BsCustomDates): void;
+    compareRanges(range?: BsCustomDates): boolean;
     static ɵfac: i0.ɵɵFactoryDeclaration<BsCustomDatesViewComponent, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<BsCustomDatesViewComponent, "bs-custom-date-view", never, { "ranges": { "alias": "ranges"; "required": false; }; "selectedRange": { "alias": "selectedRange"; "required": false; }; "customRangeLabel": { "alias": "customRangeLabel"; "required": false; }; }, { "onSelect": "onSelect"; }, never, never, true, never>;
 }

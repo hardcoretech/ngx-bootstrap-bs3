@@ -9,7 +9,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getSourceFile = exports.addModuleImportToRootModule = exports.removePackageJsonDependency = exports.createTestApp = exports.addPackageToPackageJson = exports.getProjectTargetOptions = void 0;
+exports.getProjectTargetOptions = getProjectTargetOptions;
+exports.addPackageToPackageJson = addPackageToPackageJson;
+exports.createTestApp = createTestApp;
+exports.removePackageJsonDependency = removePackageJsonDependency;
+exports.addModuleImportToRootModule = addModuleImportToRootModule;
+exports.getSourceFile = getSourceFile;
 /**
  * @license
  * Copyright Google LLC All Rights Reserved.
@@ -30,7 +35,6 @@ function getProjectTargetOptions(project, buildTarget) {
     }
     throw new Error(`Cannot determine project target configuration for: ${buildTarget}.`);
 }
-exports.getProjectTargetOptions = getProjectTargetOptions;
 function sortObjectByKeys(obj) {
     return (Object.keys(obj)
         .sort()
@@ -53,7 +57,6 @@ function addPackageToPackageJson(host, pkg, version) {
     }
     return host;
 }
-exports.addPackageToPackageJson = addPackageToPackageJson;
 function createTestApp(runner_1) {
     return __awaiter(this, arguments, void 0, function* (runner, appOptions = {}) {
         const workspaceTree = yield runner.runExternalSchematic('@schematics/angular', 'workspace', {
@@ -64,7 +67,6 @@ function createTestApp(runner_1) {
         return runner.runExternalSchematic('@schematics/angular', 'application', Object.assign(Object.assign({}, appOptions), { name: 'ngx-bootstrap' }), workspaceTree);
     });
 }
-exports.createTestApp = createTestApp;
 function removePackageJsonDependency(tree, dependencyName) {
     if (tree.exists('package.json')) {
         const packageContent = tree.read('/package.json').toString('utf-8');
@@ -76,7 +78,6 @@ function removePackageJsonDependency(tree, dependencyName) {
         throw new schematics_1.SchematicsException(`there is no package json`);
     }
 }
-exports.removePackageJsonDependency = removePackageJsonDependency;
 function addModuleImportToRootModule(host, moduleName, src, project) {
     if ((0, ng_ast_utils_1.isStandaloneApp)(host, (0, project_main_file_1.getProjectMainFile)(project))) {
         throw new schematics_1.SchematicsException(`ngx-bootstrap doesn't support moduleless approach if we couldn't find
@@ -96,7 +97,6 @@ function addModuleImportToRootModule(host, moduleName, src, project) {
     });
     host.commitUpdate(recorder);
 }
-exports.addModuleImportToRootModule = addModuleImportToRootModule;
 function getSourceFile(host, path) {
     const buffer = host.read(path);
     if (!buffer) {
@@ -105,5 +105,4 @@ function getSourceFile(host, path) {
     const content = buffer.toString();
     return ts.createSourceFile(path, content, ts.ScriptTarget.Latest, true);
 }
-exports.getSourceFile = getSourceFile;
 //# sourceMappingURL=index.js.map

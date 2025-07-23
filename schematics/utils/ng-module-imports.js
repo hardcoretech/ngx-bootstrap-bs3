@@ -7,7 +7,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.hasNgModuleImport = void 0;
+exports.hasNgModuleImport = hasNgModuleImport;
 const ts = require("typescript");
 /**
  * Whether the Angular module in the given path imports the specifed module class name.
@@ -43,7 +43,6 @@ function hasNgModuleImport(tree, modulePath, className) {
     }
     return false;
 }
-exports.hasNgModuleImport = hasNgModuleImport;
 /**
  * Resolves the last identifier that is part of the given expression. This helps resolving
  * identifiers of nested property access expressions (e.g. myNamespace.core.NgModule).

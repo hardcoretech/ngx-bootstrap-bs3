@@ -9,7 +9,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.checkComponentName = void 0;
+exports.default = addBsToPackage;
+exports.checkComponentName = checkComponentName;
 const schematics_1 = require("@angular-devkit/schematics");
 const tasks_1 = require("@angular-devkit/schematics/tasks");
 const ng_ast_utils_1 = require("@schematics/angular/utility/ng-ast-utils");
@@ -76,7 +77,6 @@ function addBsToPackage(options) {
         addAnimationModule(project, tree, context, componentName);
     });
 }
-exports.default = addBsToPackage;
 function addModuleOfComponent(project, host, context, componentName) {
     if (!project) {
         return;
@@ -125,5 +125,4 @@ function addAnimationModule(project, host, context, componentName) {
 function checkComponentName(componentName) {
     return !!components[componentName];
 }
-exports.checkComponentName = checkComponentName;
 //# sourceMappingURL=index.js.map

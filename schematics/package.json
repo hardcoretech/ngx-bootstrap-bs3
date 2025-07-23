@@ -1,6 +1,7 @@
 {
   "name": "schematics",
   "version": "0.0.1",
+  "types": "./ng-add/index.d.ts",
   "main": "./ng-add/index.js",
   "type": "commonjs"
 }

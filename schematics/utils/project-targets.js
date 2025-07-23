@@ -7,7 +7,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getProjectTargetOptions = void 0;
+exports.getProjectTargetOptions = getProjectTargetOptions;
 /** Resolves the architect options for the build target of the given project. */
 function getProjectTargetOptions(project, buildTarget) {
     var _a, _b;
@@ -16,5 +16,4 @@ function getProjectTargetOptions(project, buildTarget) {
     }
     throw new Error(`Cannot determine project target configuration for: ${buildTarget}.`);
 }
-exports.getProjectTargetOptions = getProjectTargetOptions;
 //# sourceMappingURL=project-targets.js.map

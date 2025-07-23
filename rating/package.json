@@ -1,6 +1,6 @@
 {
   "name": "ngx-bootstrap/rating",
-  "version": "18.1.2",
+  "version": "19.0.3",
   "author": "Dmitriy Shekhovtsov <valorkin@gmail.com>",
   "license": "MIT",
   "module": "fesm2022/ngx-bootstrap-rating.mjs",
@@ -11,8 +11,6 @@
     },
     ".": {
       "types": "./index.d.ts",
-      "esm2022": "./esm2022/ngx-bootstrap-rating.mjs",
-      "esm": "./esm2022/ngx-bootstrap-rating.mjs",
       "default": "./fesm2022/ngx-bootstrap-rating.mjs"
     }
   },

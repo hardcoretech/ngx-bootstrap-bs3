@@ -7,7 +7,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getProjectMainFile = void 0;
+exports.getProjectMainFile = getProjectMainFile;
 const schematics_1 = require("@angular-devkit/schematics");
 const project_targets_1 = require("./project-targets");
 /** Looks for the main TypeScript file in the given project and returns its path. */
@@ -20,5 +20,4 @@ function getProjectMainFile(project) {
     }
     return (_b = (_a = buildOptions.main) === null || _a === void 0 ? void 0 : _a.toString()) !== null && _b !== void 0 ? _b : buildOptions.browser.toString();
 }
-exports.getProjectMainFile = getProjectMainFile;
 //# sourceMappingURL=project-main-file.js.map

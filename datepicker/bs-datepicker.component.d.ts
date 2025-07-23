@@ -50,6 +50,10 @@ export declare class BsDatepickerDirective implements OnInit, OnDestroy, OnChang
      */
     maxDate?: Date;
     /**
+     * Ignore validation errors when you reset to minDate or maxDate
+     */
+    ignoreMinMaxErrors?: boolean;
+    /**
      * Minimum view mode : day, month, or year
      */
     minMode?: BsDatepickerViewMode;
@@ -127,5 +131,5 @@ export declare class BsDatepickerDirective implements OnInit, OnDestroy, OnChang
     unsubscribeSubscriptions(): void;
     ngOnDestroy(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<BsDatepickerDirective, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<BsDatepickerDirective, "[bsDatepicker]", ["bsDatepicker"], { "placement": { "alias": "placement"; "required": false; }; "triggers": { "alias": "triggers"; "required": false; }; "outsideClick": { "alias": "outsideClick"; "required": false; }; "container": { "alias": "container"; "required": false; }; "outsideEsc": { "alias": "outsideEsc"; "required": false; }; "isDisabled": { "alias": "isDisabled"; "required": false; }; "minDate": { "alias": "minDate"; "required": false; }; "maxDate": { "alias": "maxDate"; "required": false; }; "minMode": { "alias": "minMode"; "required": false; }; "daysDisabled": { "alias": "daysDisabled"; "required": false; }; "datesDisabled": { "alias": "datesDisabled"; "required": false; }; "datesEnabled": { "alias": "datesEnabled"; "required": false; }; "dateCustomClasses": { "alias": "dateCustomClasses"; "required": false; }; "dateTooltipTexts": { "alias": "dateTooltipTexts"; "required": false; }; "isOpen": { "alias": "isOpen"; "required": false; }; "bsValue": { "alias": "bsValue"; "required": false; }; "bsConfig": { "alias": "bsConfig"; "required": false; }; }, { "onShown": "onShown"; "onHidden": "onHidden"; "bsValueChange": "bsValueChange"; }, never, never, true, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<BsDatepickerDirective, "[bsDatepicker]", ["bsDatepicker"], { "placement": { "alias": "placement"; "required": false; }; "triggers": { "alias": "triggers"; "required": false; }; "outsideClick": { "alias": "outsideClick"; "required": false; }; "container": { "alias": "container"; "required": false; }; "outsideEsc": { "alias": "outsideEsc"; "required": false; }; "isDisabled": { "alias": "isDisabled"; "required": false; }; "minDate": { "alias": "minDate"; "required": false; }; "maxDate": { "alias": "maxDate"; "required": false; }; "ignoreMinMaxErrors": { "alias": "ignoreMinMaxErrors"; "required": false; }; "minMode": { "alias": "minMode"; "required": false; }; "daysDisabled": { "alias": "daysDisabled"; "required": false; }; "datesDisabled": { "alias": "datesDisabled"; "required": false; }; "datesEnabled": { "alias": "datesEnabled"; "required": false; }; "dateCustomClasses": { "alias": "dateCustomClasses"; "required": false; }; "dateTooltipTexts": { "alias": "dateTooltipTexts"; "required": false; }; "isOpen": { "alias": "isOpen"; "required": false; }; "bsValue": { "alias": "bsValue"; "required": false; }; "bsConfig": { "alias": "bsConfig"; "required": false; }; }, { "onShown": "onShown"; "onHidden": "onHidden"; "bsValueChange": "bsValueChange"; }, never, never, true, never>;
 }
