@@ -31,11 +31,12 @@ import { PlacementForBs5 } from 'ngx-bootstrap/positioning';
       position: absolute;
     }
   `
-  ],
-  template: `
+    ],
+    template: `
     <div class="tooltip-arrow arrow"></div>
     <div class="tooltip-inner"><ng-content></ng-content></div>
-    `
+    `,
+    standalone: true
 })
 export class TooltipContainerComponent implements AfterViewInit {
   classMap?: { [key: string]: boolean };

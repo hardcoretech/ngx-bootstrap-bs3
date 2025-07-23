@@ -4,7 +4,8 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'demo-modal-service-interceptor',
-  templateUrl: './service-interceptor.html'
+  templateUrl: './service-interceptor.html',
+  standalone: false
 })
 export class DemoModalServiceWithInterceptorComponent {
   bsModalRef?: BsModalRef;
@@ -16,13 +17,13 @@ export class DemoModalServiceWithInterceptorComponent {
 
   constructor(private modalService: BsModalService) {}
 
-  openModalWithInterceptor(confirmTemplate: TemplateRef<any>) {
+  openModalWithInterceptor(confirmTemplate: TemplateRef<void>) {
     const closeInterceptor = () => {
       this.confirmPromise = new Promise((resolve, reject) => {
         this.confirmResolve = resolve;
         this.confirmReject = reject;
       });
-      this.confirmModalRef = this.modalService.show(confirmTemplate, {class: 'modal-sm'});
+      this.confirmModalRef = this.modalService.show(confirmTemplate, { class: 'modal-sm' });
 
       return this.confirmPromise;
     };
@@ -59,9 +60,9 @@ export class DemoModalServiceWithInterceptorComponent {
     <div class="modal-footer">
       <button type="button" class="btn btn-default" (click)="bsModalRef?.hide()">Close</button>
     </div>
-  `
+  `,
+  standalone: false
 })
-
 export class ModalContentWithInterceptorComponent {
-  constructor(public bsModalRef: BsModalRef) { }
+  constructor(public bsModalRef: BsModalRef) {}
 }

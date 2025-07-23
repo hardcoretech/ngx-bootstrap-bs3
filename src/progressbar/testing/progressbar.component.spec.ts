@@ -4,7 +4,8 @@ import { ProgressbarComponent, ProgressbarModule } from '../index';
 
 @Component({
   selector: 'progressbar-test',
-  template: ''
+  template: '',
+  standalone: false
 })
 class TestProgressbarComponent extends ProgressbarComponent {}
 
@@ -20,7 +21,7 @@ describe('Component: Progress Bar', () => {
   it('check animate setter when _animate is equal to setter\'s argument', () => {
     TestBed.configureTestingModule({
       declarations: [TestProgressbarComponent],
-      imports: [ProgressbarModule.forRoot()]
+      imports: [ProgressbarModule]
     });
     fixture = TestBed.createComponent(TestProgressbarComponent);
     component = fixture.componentInstance;
@@ -33,7 +34,7 @@ describe('Component: Progress Bar', () => {
   it('check striped setter when _striped is equal to setter\'s argument', () => {
     TestBed.configureTestingModule({
       declarations: [TestProgressbarComponent],
-      imports: [ProgressbarModule.forRoot()]
+      imports: [ProgressbarModule]
     });
     fixture = TestBed.createComponent(TestProgressbarComponent);
     component = fixture.componentInstance;
@@ -47,7 +48,7 @@ describe('Component: Progress Bar', () => {
     const tpl = `<progressbar></progressbar>`;
     TestBed.configureTestingModule({
       declarations: [TestProgressbarComponent],
-      imports: [ProgressbarModule.forRoot()]
+      imports: [ProgressbarModule]
     });
     TestBed.overrideComponent(TestProgressbarComponent, {
       set: { template: tpl }
@@ -65,7 +66,7 @@ describe('Component: Progress Bar', () => {
     const tpl = `<progressbar [type]="typeValue"></progressbar>`;
     TestBed.configureTestingModule({
       declarations: [TestProgressbarComponent],
-      imports: [ProgressbarModule.forRoot()]
+      imports: [ProgressbarModule]
     });
     TestBed.overrideComponent(TestProgressbarComponent, {
       set: { template: tpl }
@@ -85,7 +86,7 @@ describe('Component: Progress Bar', () => {
     const tpl = `<progressbar [max]="100" [value]="60"></progressbar>`;
     TestBed.configureTestingModule({
       declarations: [TestProgressbarComponent],
-      imports: [ProgressbarModule.forRoot()]
+      imports: [ProgressbarModule]
     });
     TestBed.overrideComponent(TestProgressbarComponent, {
       set: { template: tpl }
@@ -113,7 +114,7 @@ describe('Component: Progress Bar', () => {
     const tpl = `<progressbar [type]="typeValue" [value]="valueValue" [animate]="true" [max]="maxValue"></progressbar>`;
     TestBed.configureTestingModule({
       declarations: [TestProgressbarComponent],
-      imports: [ProgressbarModule.forRoot()]
+      imports: [ProgressbarModule]
     });
     TestBed.overrideComponent(TestProgressbarComponent, {
       set: { template: tpl }
@@ -147,7 +148,7 @@ describe('progress bar', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [TestProgressbarComponent],
-      imports: [ProgressbarModule.forRoot()]
+      imports: [ProgressbarModule]
     });
     fixture = TestBed.overrideComponent(TestProgressbarComponent, {
       set: { template: tpl }

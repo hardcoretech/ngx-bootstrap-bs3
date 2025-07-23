@@ -8,6 +8,7 @@
 
 # dependencies
 /node_modules
+src/root/node_modules
 
 # IDEs and editors
 /.idea
@@ -41,6 +42,7 @@ Thumbs.db
 
 firebase-debug.log
 .nx-cache
+.nx
 scully.log
 /.angular
 /.scully
@@ -57,3 +59,5 @@ scully.log
 **/playwright/.cache/
 
 migration.json
+
+.nx/cache

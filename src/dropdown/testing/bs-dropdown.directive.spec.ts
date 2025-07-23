@@ -7,7 +7,8 @@ import { BsDropdownConfig, BsDropdownDirective, BsDropdownModule } from '../inde
 
 @Component({
   selector: 'dropdown-test',
-  template: ''
+  template: '',
+  standalone: false
 })
 class TestDropdownComponent {
   isOpen = false;
@@ -50,7 +51,7 @@ describe('Directive: Dropdown', () => {
     TestBed.configureTestingModule({
       declarations: [TestDropdownComponent],
       imports: [
-        BsDropdownModule.forRoot(),
+        BsDropdownModule,
         BrowserAnimationsModule
       ]
     });

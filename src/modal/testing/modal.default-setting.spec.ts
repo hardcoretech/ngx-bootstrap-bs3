@@ -4,14 +4,15 @@ import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { BsModalService, ModalModule } from '../index';
 import { MODAL_CONFIG_DEFAULT_OVERRIDE } from '../modal-options.class';
 
-@Component({ template: '<div>Dummy Component</div>' })
+@Component({ template: '<div>Dummy Component</div>', standalone: false })
 class DummyComponent {
   // eslint-disable-next-line @typescript-eslint/no-empty-function,@typescript-eslint/no-unused-vars
   constructor(modalService: BsModalService) {}
 }
 
 @Component({
-  template: '<div>Test Component</div>'
+  template: '<div>Test Component</div>',
+  standalone: false
 })
 class TestModalComponent {}
 
@@ -29,7 +30,7 @@ describe('Modal service', () => {
     TestBed.configureTestingModule({
       declarations: [DummyComponent],
       providers: [BsModalService],
-      imports: [ModalModule.forRoot(), TestModule]
+      imports: [ModalModule, TestModule]
     });
     fixture = TestBed.createComponent(DummyComponent);
     modalService = fixture.debugElement.injector.get(BsModalService);

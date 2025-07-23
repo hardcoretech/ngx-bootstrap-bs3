@@ -25,8 +25,10 @@ import { checkBsValue, setCurrentTimeOnDateSelect } from './utils/bs-calendar-ut
 export let previousDate: Date | Date[] | undefined;
 
 @Directive({
-  selector: '[bsDatepicker]',
-  exportAs: 'bsDatepicker'
+    selector: '[bsDatepicker]',
+    exportAs: 'bsDatepicker',
+    providers: [ComponentLoaderFactory],
+    standalone: true
 })
 export class BsDatepickerDirective implements OnInit, OnDestroy, OnChanges, AfterViewInit {
   /**
@@ -70,6 +72,10 @@ export class BsDatepickerDirective implements OnInit, OnDestroy, OnChanges, Afte
    * Maximum date which is available for selection
    */
   @Input() maxDate?: Date;
+  /**
+   * Ignore validation errors when you reset to minDate or maxDate
+   */
+  @Input() ignoreMinMaxErrors?: boolean;
   /**
    * Minimum view mode : day, month, or year
    */

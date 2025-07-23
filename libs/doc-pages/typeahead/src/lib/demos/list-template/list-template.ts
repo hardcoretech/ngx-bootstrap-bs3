@@ -29,7 +29,8 @@ import { isBs3 } from 'ngx-bootstrap/utils';
       background-color: #FF4461;
       border-color: #FF4461;
     }
-  `]
+  `],
+  standalone: false
 })
 export class DemoTypeaheadListTemplateComponent {
   isBs3 = isBs3();

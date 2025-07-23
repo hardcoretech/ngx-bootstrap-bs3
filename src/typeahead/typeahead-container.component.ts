@@ -22,6 +22,7 @@ import { TypeaheadMatch } from './typeahead-match.class';
 import { TypeaheadDirective } from './typeahead.directive';
 import { typeaheadAnimation } from './typeahead-animations';
 import { TypeaheadOptionItemContext, TypeaheadOptionListContext, TypeaheadTemplateMethods } from './models';
+import { NgTemplateOutlet, NgFor, NgIf } from '@angular/common';
 
 let nextWindowId = 0;
 
@@ -49,8 +50,11 @@ let nextWindowId = 0;
       height: 100px;
     }
   `
-  ],
-  animations: [typeaheadAnimation]
+    ],
+    animations: [typeaheadAnimation],
+    standalone: true,
+    imports: [NgTemplateOutlet, NgFor, NgIf],
+    providers: [PositioningService]
 })
 
 export class TypeaheadContainerComponent implements OnDestroy {
@@ -277,7 +281,7 @@ export class TypeaheadContainerComponent implements OnDestroy {
             `${itemStr.substring(0, startIdx)}<strong>${itemStr.substring(startIdx, startIdx + tokenLen)}</strong>` +
             `${itemStr.substring(startIdx + tokenLen)}`;
           itemStrHelper =
-            `${itemStrHelper.substring(0, startIdx)}        ${' '.repeat(tokenLen)}         ` +
+            `${itemStrHelper.substring(0, startIdx)}????????${'??'.repeat(tokenLen)}??????????` +
             `${itemStrHelper.substring(startIdx + tokenLen)}`;
         }
       }
@@ -394,7 +398,7 @@ export class TypeaheadContainerComponent implements OnDestroy {
     const elemBottom = elemTop + elem.offsetHeight;
 
     return ((elemBottom <= containerViewBottom) && (elemTop >= containerViewTop));
-  };
+  }
 
   private scrollToBottom(): void {
     if (!this.ulElement?.nativeElement) {

@@ -21,7 +21,8 @@ interface IComponentContent {
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'add-nav',
-  templateUrl: './add-nav.component.html'
+  templateUrl: './add-nav.component.html',
+  standalone: false
 })
 export class AddNavComponent implements OnChanges, AfterViewChecked, AfterViewInit {
   @Input() componentContent?: ContentSection;
@@ -32,7 +33,7 @@ export class AddNavComponent implements OnChanges, AfterViewChecked, AfterViewIn
   @HostListener('window:scroll')
   onScrollEvent() {
     this.initActiveMenuTab();
-  };
+  }
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   constructor(

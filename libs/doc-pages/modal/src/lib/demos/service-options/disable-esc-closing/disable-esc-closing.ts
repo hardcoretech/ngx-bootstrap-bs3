@@ -4,7 +4,8 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'demo-modal-service-disable-esc-closing',
-  templateUrl: './disable-esc-closing.html'
+  templateUrl: './disable-esc-closing.html',
+  standalone: false
 })
 export class DemoModalServiceDisableEscClosingComponent {
   modalRef?: BsModalRef;
@@ -13,7 +14,7 @@ export class DemoModalServiceDisableEscClosingComponent {
   };
   constructor(private modalService: BsModalService) {}
 
-  openModal(template: TemplateRef<any>) {
+  openModal(template: TemplateRef<void>) {
     this.modalRef = this.modalService.show(template, this.config);
   }
 }

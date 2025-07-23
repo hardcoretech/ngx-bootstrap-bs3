@@ -6,17 +6,17 @@ import { ContentSection } from '@ngx-bootstrap-doc/docs';
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'progressbar-section',
   templateUrl: './progressbar-section.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class ProgressbarSectionComponent {
   name = 'Progressbar';
   src = 'https://github.com/valor-software/ngx-bootstrap/tree/development/src/progressbar';
   componentContent: ContentSection[] = demoComponentContent;
-  content: any;
 
   _injectors = new Map<ContentSection, Injector>();
 
-  constructor(private injector: Injector) { }
+  constructor(private injector: Injector) {}
 
   sectionInjections(content: ContentSection) {
     if (this._injectors.has(content)) {
@@ -30,7 +30,7 @@ export class ProgressbarSectionComponent {
           useValue: content
         }
       ],
-      parent: this.injector,
+      parent: this.injector
     });
 
     this._injectors.set(content, _injector);

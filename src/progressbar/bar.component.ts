@@ -29,6 +29,7 @@ import { ProgressbarType } from './progressbar-type.interface';
     '[style.height.%]': '"100"',
     '[style.width.%]': 'percent'
   }
+  standalone: true
 })
 export class BarComponent implements OnChanges {
   /** maximum total value of progress element */

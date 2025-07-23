@@ -42,6 +42,7 @@ export class BsModalService {
   protected backdropRef?: ComponentRef<ModalBackdropComponent>;
   private _backdropLoader: ComponentLoader<ModalBackdropComponent>;
   private modalsCount = 0;
+  private lastHiddenId: number | string | null | undefined = null;
   private lastDismissReason?: string;
 
   private loaders: ComponentLoader<ModalContainerComponent>[] = [];
@@ -68,6 +69,7 @@ export class BsModalService {
   ): BsModalRef<T> {
     this._focusEl = document.activeElement;
     this.modalsCount++;
+    this.lastHiddenId = null;
     this._createLoaders();
 
     // must be different per every show() call
@@ -83,6 +85,10 @@ export class BsModalService {
   }
 
   hide(id?: number | string) {
+    if (this.lastHiddenId === id) {
+      return;
+    }
+    this.lastHiddenId = id;
     if (this.modalsCount === 1 || id == null) {
       this._hideBackdrop();
       this.resetScrollbar();

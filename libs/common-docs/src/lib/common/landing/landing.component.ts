@@ -11,7 +11,8 @@ const _bs4Css = 'assets/css/bootstrap-4.5.3/css/bootstrap.min.css';
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'landing',
-  templateUrl: './landing.component.html'
+  templateUrl: './landing.component.html',
+  standalone: false
 })
 export class LandingComponent implements AfterViewInit {
   currentVersion?: string;
@@ -29,8 +30,8 @@ export class LandingComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     if (typeof window !== 'undefined') {
-      this.http.get<any>('assets/json/current-version.json').subscribe(data => {
-        this.currentVersion = data.version;
+      this.http.get<{ version: string }>('assets/json/current-version.json').subscribe(({ version }) => {
+        this.currentVersion = version;
       });
     }
   }
@@ -45,6 +46,6 @@ export class LandingComponent implements AfterViewInit {
   }
 
   scrollToSection() {
-    this.router.navigate(['.', 'documentation' ], {fragment: 'getting-started'});
+    this.router.navigate(['.', 'documentation'], { fragment: 'getting-started' });
   }
 }

@@ -5,12 +5,13 @@ import { DataSourceType } from '../interfaces/typeahead.interfaces';
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'demo-typeahead-on-select',
-  templateUrl: './on-select.html'
+  templateUrl: './on-select.html',
+  standalone: false
 })
 export class DemoTypeaheadOnSelectComponent {
   selectedValue?: string;
-  selectedOption: any;
-  previewOption?: any;
+  selectedOption?: DataSourceType;
+  previewOption?: DataSourceType;
   states: DataSourceType[] = [
     { id: 1, name: 'Alabama', region: 'South' },
     { id: 2, name: 'Alaska', region: 'West' },
@@ -64,15 +65,15 @@ export class DemoTypeaheadOnSelectComponent {
     { id: 51, name: 'Wyoming', region: 'West' }
   ];
 
-  onSelect(event: TypeaheadMatch): void {
+  onSelect(event: TypeaheadMatch<DataSourceType>): void {
     this.selectedOption = event.item;
   }
 
-  onPreview(event: TypeaheadMatch): void {
+  onPreview(event: TypeaheadMatch<DataSourceType>): void {
     if (event) {
       this.previewOption = event.item;
     } else {
-      this.previewOption = null;
+      this.previewOption = undefined;
     }
   }
 }

@@ -4,7 +4,8 @@ import { TabsetConfig, TabsModule, TabsetComponent } from '../index';
 
 @Component({
   selector: 'tabs-test',
-  template: ''
+  template: '',
+  standalone: false
 })
 class TestTabsetComponent {
   isVertical = false;
@@ -105,7 +106,7 @@ describe('Component: Tabs', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [TestTabsetComponent],
-      imports: [TabsModule.forRoot()]
+      imports: [TabsModule]
     });
     TestBed.overrideComponent(TestTabsetComponent, { set: { template: html } });
     fixture = TestBed.createComponent(TestTabsetComponent);

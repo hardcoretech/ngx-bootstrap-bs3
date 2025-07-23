@@ -6,13 +6,14 @@ interface ICompany {
   description: string;
   link: string;
   scale?: boolean;
-};
+}
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'discover',
   templateUrl: './discover.component.html',
-  styleUrls: ['discover.component.scss']
+  styleUrls: ['discover.component.scss'],
+  standalone: false
 })
 
 export class DiscoverComponent {

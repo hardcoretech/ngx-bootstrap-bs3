@@ -3,7 +3,8 @@
     "../../.eslintrc.json"
   ],
   "ignorePatterns": [
-    "!**/*"
+    "!**/*",
+    "**/assets/**"
   ],
   "overrides": [
     {
@@ -35,6 +36,9 @@
             "prefix": "ngx-bootstrap-base",
             "style": "kebab-case"
           }
+        ],
+        "@angular-eslint/prefer-standalone": [
+          "off"
         ],
         "@typescript-eslint/no-explicit-any": 0,
         "@angular-eslint/component-class-suffix": 0,
