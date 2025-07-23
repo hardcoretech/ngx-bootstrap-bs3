@@ -28,7 +28,7 @@ import { ProgressbarType } from './progressbar-type.interface';
     '[attr.aria-valuemax]': 'max',
     '[style.height.%]': '"100"',
     '[style.width.%]': 'percent'
-  }
+  },
   standalone: true
 })
 export class BarComponent implements OnChanges {
