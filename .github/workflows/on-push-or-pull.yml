@@ -127,7 +127,8 @@ jobs:
   # run playwright
   e2e_smoke:
     name: e2e smoke (${{ matrix.shard }}/${{ strategy.job-total }})
-    runs-on: ubuntu-latest
+    # Playwright 1.35.1 predates Ubuntu 24.04; install-deps fails on libasound2 (renamed to libasound2t64).
+    runs-on: ubuntu-22.04
     needs: [install, build, firebase_preview]
 
     strategy:
@@ -167,7 +168,7 @@ jobs:
 
   e2e_full:
     name: e2e full
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: [e2e_smoke]
 
     strategy:
