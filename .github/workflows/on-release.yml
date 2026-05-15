@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.11.0
+        uses: styfle/cancel-workflow-action@85880fa0301c86cca9da44039ee3bb12d3bedbfa # 0.12.1
         with:
           access_token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -27,8 +27,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: one_run
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/cache@v3
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         id: cache
         with:
           path: node_modules
@@ -41,12 +41,12 @@ jobs:
     needs: install
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/cache@v3
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-lock.json') }}
-      - uses: actions/cache@v3
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
           path: dist
           key: dist-${{ github.run_id }}
@@ -59,8 +59,8 @@ jobs:
 #    needs: install
 #    runs-on: ubuntu-latest
 #    steps:
-#      - uses: actions/checkout@v3
-#      - uses: actions/cache@v3
+#      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+#      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
 #        with:
 #          path: node_modules
 #          key: node_modules-${{ hashFiles('**/package-lock.json') }}
@@ -73,17 +73,17 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
           ref: 'gh-pages'
           path: 'gh-pages'
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-lock.json') }}
-      - uses: actions/cache@v3
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
           path: dist
           key: dist-${{ github.run_id }}
@@ -98,7 +98,7 @@ jobs:
           git commit -am "ci: gh-pages update"
         continue-on-error: true
       - name: push to gh-pages
-        uses: ad-m/github-push-action@v0.6.0
+        uses: ad-m/github-push-action@40bf560936a8022e68a3c00e7d2abefaf01305a6 # v0.6.0
         continue-on-error: true
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -110,12 +110,12 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/cache@v3
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-lock.json') }}
-      - uses: actions/cache@v3
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
           path: dist
           key: dist-${{ github.run_id }}
@@ -123,7 +123,7 @@ jobs:
       # Deploy to local repo
       # see: https://github.com/marketplace/actions/push-git-subdirectory-as-branch
       - name: Deploy
-        uses: s0/git-publish-subdir-action@develop
+        uses: s0/git-publish-subdir-action@ac113f6bfe8896e85a373534242c949a7ea74c98 # develop
         env:
           REPO: self
           BRANCH: dist
