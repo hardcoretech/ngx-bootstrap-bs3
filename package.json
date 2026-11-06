@@ -139,6 +139,9 @@
     "webpack-bundle-analyzer": "4.5.0"
   },
   "overrides": {
-    "stylus": "https://github.com/stylus/stylus/archive/refs/tags/0.64.0.tar.gz"
+    "stylus": "https://github.com/stylus/stylus/archive/refs/tags/0.64.0.tar.gz",
+    "@module-federation/dts-plugin": {
+      "undici": "^7.30.1"
+    }
   }
 }
