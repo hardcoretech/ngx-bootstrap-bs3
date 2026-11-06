@@ -1,4 +1,4 @@
-FROM node
+FROM node:22.23.4
 
 RUN apt-get update
 
